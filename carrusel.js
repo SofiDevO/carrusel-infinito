@@ -10,9 +10,9 @@ const slideTemplate = (data) => `
   </div>
 `;
 
-const newcarruselData = carruselData.concat(carruselData);
+// const newcarruselData = carruselData.concat(carruselData);
 
-const carruselCards = newcarruselData
+const carruselCards = [...carruselData, ...carruselData]
   .map((data) => slideTemplate(data))
   .join("");
 slideTrack.insertAdjacentHTML("beforeend", carruselCards);

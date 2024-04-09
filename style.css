@@ -17,7 +17,7 @@ body {
 }
 
 .slider {
-  width: 70%;
+  width: 50%;
   margin: auto;
   height: auto;
   overflow: hidden;
@@ -29,6 +29,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 2;
   width: 150px;
   height: 100%;
   background: linear-gradient(
