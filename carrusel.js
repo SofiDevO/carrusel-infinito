@@ -1,11 +1,18 @@
 import { carruselData } from "./carruselData.js";
-const slideTrack = document.querySelector(".slide__track");
-const carruselCards = carruselData.map(
-  (data) => `
-    <div class="slide">
-    <img src=${data.src}
-    alt=${data.name}>
-    </div>
-`).join("");
+import { firstLetterUppercase } from "./stringFormatter.js";
 
-slideTrack.innerHTML = carruselCards;
+const slideTrack = document.querySelector(".slide__track");
+
+const slideTemplate = (data) => `
+  <div class="slide">
+    <div class="tag">${firstLetterUppercase(data.name)}</div>
+    <img src="${data.src}" alt="${data.name}">
+  </div>
+`;
+
+const newcarruselData = carruselData.concat(carruselData);
+
+const carruselCards = newcarruselData
+  .map((data) => slideTemplate(data))
+  .join("");
+slideTrack.insertAdjacentHTML("beforeend", carruselCards);
